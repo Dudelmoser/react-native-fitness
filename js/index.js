@@ -6,7 +6,7 @@ import { NativeModules } from "react-native";
  * @param endDate
  * @returns {*}
  */
-const getSteps = ({ startDate, endDate, interval = "days" }) =>
+const getSteps = ({ startDate, endDate, interval = "day" }) =>
   NativeModules.Fitness.getSteps(
     parseDate(startDate),
     parseDate(endDate),
@@ -19,7 +19,7 @@ const getSteps = ({ startDate, endDate, interval = "days" }) =>
  * @param endDate
  * @returns {*}
  */
-const getDistance = ({ startDate, endDate, interval = "days" }) =>
+const getDistance = ({ startDate, endDate, interval = "day" }) =>
   NativeModules.Fitness.getDistance(
     parseDate(startDate),
     parseDate(endDate),
@@ -33,7 +33,7 @@ const getDistance = ({ startDate, endDate, interval = "days" }) =>
  * @param interval
  * @returns {*}
  */
-const getCalories = ({ startDate, endDate, interval = "days" }) =>
+const getCalories = ({ startDate, endDate, interval = "day" }) =>
   NativeModules.Fitness.getCalories(
     parseDate(startDate),
     parseDate(endDate),
@@ -47,7 +47,7 @@ const getCalories = ({ startDate, endDate, interval = "days" }) =>
  * @param interval
  * @returns {*}
  */
-const getHeartRate = ({ startDate, endDate, interval = "days" }) =>
+const getHeartRate = ({ startDate, endDate, interval = "day" }) =>
   NativeModules.Fitness.getHeartRate(
     parseDate(startDate),
     parseDate(endDate),
@@ -70,7 +70,7 @@ const getSleepAnalysis = ({ startDate, endDate }) =>
  * Check if valid date and parse it
  * @param date: Date to parse
  */
-const parseDate = date => {
+const parseDate = (date) => {
   if (!date) {
     throw Error("Date not valid");
   }
@@ -81,7 +81,6 @@ const parseDate = date => {
   }
   return parsed;
 };
-
 
 export default {
   ...NativeModules.Fitness,
