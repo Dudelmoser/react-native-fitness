@@ -153,7 +153,7 @@ export declare interface SleepAnalysisRequest {
 export declare interface SleepAnalysisRecord {
   startDate: string
   endDate: string
-  value: number
+  value: string
   sourceName: string
   sourceId: string
 }
