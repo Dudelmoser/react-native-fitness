@@ -145,6 +145,17 @@ export declare type HeartRateResponse = HeartRateRecord[]
  */
 export declare function getHeartRate(request: HeartRateRequest): Promise<HeartRateResponse>
 
+export declare type SleepAnalysisValue =
+  // Apple HealthKit
+  | "UNKNOWN"
+  | "INBED"
+  | "ASLEEP"
+  // Google Fit
+  | "sleep.awake"
+  | "sleep.light"
+  | "sleep.deep"
+  | "sleep.rem"
+
 export declare interface SleepAnalysisRequest {
   startDate: string
   endDate: string
@@ -153,7 +164,7 @@ export declare interface SleepAnalysisRequest {
 export declare interface SleepAnalysisRecord {
   startDate: string
   endDate: string
-  value: string
+  value: SleepAnalysisValue
   sourceName: string
   sourceId: string
 }
